@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar una pelicula</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <figure>
+      <img src="/img/logo-DH.png" alt="Logo Digital House" />
+    </figure>
+    <form
+      action="/movies/create"
+      method="post"
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+      "
+    >
+      <label for="title">Titulo</label>
+      <input type="text" name="title" id="title" />
+
+      <label for="rating">Rating</label>
+      <input type="text" name="rating" id="rating" />
+
+      <label for="awards">Premios</label>
+      <input type="text" name="awards" id="awards" />
+
+      <label for="release_date">Fecha de estreno</label>
+      <input type="datetime-local" name="release_date" id="release_date" />
+
+      <label for="length">Duracion (Minutos)</label>
+      <input type="text" name="length" id="length" />
+
+      <label for="genre_id">Genero</label>
+      <select name="genre_id" id="genre_id">
+        <% genres.forEach(genre => { %>
+        <option value="<%- genre.id %>"><%- genre.name %></option>
+        <% }) %>
+      </select>
+      <button type="submit">ENVIAR</button>
+    </form>
+  </body>
+</html>
